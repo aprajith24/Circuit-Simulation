@@ -4,7 +4,7 @@ no_of_rows=size(LINELEM,1);
 count = 0;
 for n = 1:no_of_rows
     if (LINELEM(n,TYPE_) == Y_),
-        [M]= stamp_comductance(M,LINELEM(n,:));
+        [M]= stamp_conductance(M,LINELEM(n,:));
     end
     if (LINELEM(n,TYPE_) == R_),
         [M]= stamp_resistance(M,LINELEM(n,:));
@@ -22,7 +22,7 @@ for n = 1:no_of_rows
         count = count +1;
         TEMP = [V_ 0 LINELEM(n,L_N1_) LINELEM(n,L_N2_)];
         [M,I,new_row] = stamp_ind_vsource(M,I,TEMP);
-        CL_I(count,2) = new_row
+        CL_I(count,2) = new_row;
     end
     if (LINELEM(n,TYPE_) == C_),
         count = count +1;

@@ -1,0 +1,3 @@
+function transient_analysis(filename);
+load -mat filename;clear
+[M,I,VOL,CL_I,time_M,time_I]= trans_analysis(LINELEM,NLNELEM,INFO,PLOTNV);

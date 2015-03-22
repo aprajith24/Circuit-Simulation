@@ -1,8 +1,9 @@
-function [vin] = voltage_pwl(D,time_now);
+function [vin] = voltage_pwl(D,time_now)
+global V_TYPE_ DC_ PWL_
 columns = size(D,2);
-if(columns<7),
+if(D(1,V_TYPE_) == DC_),
     vin = D(1,2);
-else
+elseif(D(1,V_TYPE_) == PWL_),
     for n = 7:2:columns
         if(time_now <= D(1,n)),
             if(n>7),
